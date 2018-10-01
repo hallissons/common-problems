@@ -1,0 +1,11 @@
+.DS_Store
+/target/
+/build/
+.gradle/
+.metadata/
+.settings/
+/bin/
+/.classpath
+/.project
+/gradlew
+/gradlew.bat
