@@ -121,6 +121,7 @@ public class Tree<T extends Comparable<T>> {
 		if (next == null) {
 			return;
 		}
+		char c = '\0';
 		toStringInOrder(next.left, result);
 		if (result.length() > 0) {
 			result.append(", ");

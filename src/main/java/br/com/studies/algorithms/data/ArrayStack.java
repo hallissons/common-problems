@@ -16,7 +16,6 @@ public class ArrayStack extends DynamicArray {
 
 	public int peek(){
 		int index = getSize() -1;
-		int el = getAt(index);
-		return el;
+		return getAt(index);
 	}	
 }

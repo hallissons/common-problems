@@ -11,12 +11,30 @@ public class Graph<T extends Comparable<T>> {
 		this.vertices = new HashSet<>();
 	}
 
-	public void addVertex(T data) {
+	public GraphNode<T> addVertex(T data) {
 		GraphNode<T> node = new GraphNode<>(data);
 		this.vertices.add(node);
+		return node;
+	}
+	
+	public Set<GraphNode<T>> getVertices(){
+		return vertices;
+	}
+	
+	public GraphNode<T> getVertice(T data){
+		for (GraphNode<T> n : vertices) {
+			if(n.data.equals(data)){
+				return n;
+			}
+		}
+		return null;
+	}
+	
+	public String toString(){
+		return vertices.toString();
 	}
 
-	static class GraphNode<T> {
+	public static class GraphNode<T> {
 		private final T data;
 		private final Set<GraphNode<T>> edges;
 		
@@ -28,14 +46,16 @@ public class Graph<T extends Comparable<T>> {
 			this.data = data;
 			this.edges = new HashSet<>();
 		}
+		
+		public Set<GraphNode<T>> getEdges(){
+			return edges;
+		}
 
 		public void addEdge(GraphNode<T> to) {
-			to.edges.add(this);
 			edges.add(to);
 		}
 
 		public void removeEdge(GraphNode<T> to) {
-			to.edges.remove(this);
 			edges.remove(to);
 		}
 

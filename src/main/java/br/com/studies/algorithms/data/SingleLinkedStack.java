@@ -2,10 +2,10 @@ package br.com.studies.algorithms.data;
 
 public class SingleLinkedStack<T> {
 	private int size = 0;
-	public StackNode<T> head;
+	private StackNode<T> head;
 
 	public void push(T data) {
-		StackNode<T> node = new StackNode<T>(data, head);
+		StackNode<T> node = new StackNode<>(data, head);
 		this.head = node;
 		size++;
 	}
