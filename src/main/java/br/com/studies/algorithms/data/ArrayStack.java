@@ -8,14 +8,14 @@ public class ArrayStack extends DynamicArray {
 	}
 	
 	public int pop(){
-		int index = getSize() -1;
+		int index = size() -1;
 		int el = getAt(index);
 		removeAt(index);
 		return el;
 	}
 
 	public int peek(){
-		int index = getSize() -1;
+		int index = size() -1;
 		return getAt(index);
 	}	
 }

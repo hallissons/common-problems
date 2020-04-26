@@ -3,7 +3,7 @@ package br.com.studies.algorithms.base;
 import java.util.HashSet;
 import java.util.Set;
 
-public class Solution {
+public class GenericAlphabet {
 
 	public static void main(String[] args) {
 		String input = "heeeeeello world!!!";

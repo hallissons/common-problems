@@ -1,21 +1,18 @@
 package br.com.studies.algorithms.data;
 
 public class DynamicArray {
-	
+
 	private static final int INITIAL_MAX = 10;
 
 	private int[] elements = new int[INITIAL_MAX];
 	private int size;
 
-	public DynamicArray() {
-	}
-
-	public void addAll(DynamicArray ls){
+	public void addAll(DynamicArray ls) {
 		for (int i = 0; i < ls.size; i++) {
 			add(ls.elements[i]);
 		}
 	}
-	
+
 	public void add(int el) {
 		ensureCapacity();
 		elements[size] = el;
@@ -33,18 +30,23 @@ public class DynamicArray {
 		return -1;
 	}
 	
-	public int getSize(){
+	public void removeAt(int i) {
+		System.arraycopy(elements, i + 1, elements, i, size - 1);
+		size--;
+	}
+
+	public int size() {
 		return size;
 	}
-	
+
 	public int getAt(int i) {
-		if(i < size){
+		if (i < size) {
 			return elements[i];
 		}
 		throw new ArrayIndexOutOfBoundsException(i);
 	}
-	
-	public int[] toArray(){
+
+	public int[] toArray() {
 		int[] arr = new int[size];
 		System.arraycopy(elements, 0, arr, 0, size);
 		return arr;
@@ -52,15 +54,16 @@ public class DynamicArray {
 
 	@Override
 	public String toString() {
-		String els = "[";
+		StringBuilder res = new StringBuilder((size * 2) + 1);
+		res.append("[");
 		for (int i = 0; i < size; i++) {
-			els += elements[i];
+			res.append(elements[i]);
 			if (i + 1 < size) {
-				els += ",";
+				res.append(",");
 			}
 		}
-		els += "]";
-		return els;
+		res.append("]");
+		return res.toString();
 	}
 
 	private void ensureCapacity() {
@@ -71,10 +74,4 @@ public class DynamicArray {
 		System.arraycopy(elements, 0, newArr, 0, elements.length);
 		elements = newArr;
 	}
-
-	protected void removeAt(int i) {
-		System.arraycopy(elements, i + 1, elements, i, size - 1);
-		size--;
-	}
-
 }
